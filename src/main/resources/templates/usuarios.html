@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Lista Usuario</title>
+    <title>Lista de Usuarios</title>
     <style>
         table {
             border: 1px solid black;
@@ -13,46 +13,37 @@
         }
 
         th, td {
-
             border: 1px solid black;
+            padding: 8px;
+            text-align: left;
         }
 
         th {
             background-color: #0077A8;
             color: white;
-
         }
 
         td {
             padding-left: 5px;
-
         }
-
-
     </style>
-
-
 </head>
 <body>
-
 <table>
     <tr>
         <th>Nombre</th>
         <th>Apellido</th>
         <th>Email</th>
-        <th>Telefono</th>
-        <th>edad</th>
-
+        <th>Teléfono</th>
+        <th>Edad</th>
     </tr>
-    <tr  th:each="usuarios : ${usuario}">
-        <td  th:text="${usuarios.nombre}"></td>
-        <td  th:text="${usuarios.apellido}"></td>
-        <td  th:text="${usuarios.email}"></td>
-        <td  th:text="${usuarios.telefono}"></td>
-        <td  th:text="${usuarios.edad}"></td>
+    <tr th:each="usuario : ${usuarios}">
+        <td th:text="${usuario.nombre}"></td>
+        <td th:text="${usuario.apellido}"></td>
+        <td th:text="${usuario.email}"></td>
+        <td th:text="${usuario.telefono}"></td>
+        <td th:text="${usuario.edad}"></td>
     </tr>
-
 </table>
-
 </body>
 </html>
