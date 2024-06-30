@@ -55,12 +55,23 @@ public class UsuarioController {
     }
 
     @PostMapping("/registrarse")
-    public String saveUser(@ModelAttribute("usuario") Usuario usuario, Model model) {
+    public String saveUser(@ModelAttribute("usuario") Usuario usuario,
+                           @RequestParam("confirmContrasena") String confirmContrasena,
+                           Model model) {
+        // Verificar si el correo ya está registrado
         List<Usuario> existingUsers = usuarioRepository.findByEmail(usuario.getEmail());
         if (!existingUsers.isEmpty()) {
             model.addAttribute("message", "El correo ya está registrado");
             return "registrarse";
         }
+
+        // Verificar si las contraseñas coinciden
+        if (!usuario.getContrasena().equals(confirmContrasena)) {
+            model.addAttribute("message", "Las contraseñas no coinciden");
+            return "registrarse";
+        }
+
+        // Guardar el usuario si las validaciones pasan
         usuarioRepository.save(usuario);
         model.addAttribute("message", "Usuario Registrado");
         return "registrarse";

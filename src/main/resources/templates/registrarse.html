@@ -7,7 +7,6 @@
 </head>
 <body>
 
-
 <div class="container">
     <h2>Registrarse</h2>
 
@@ -29,16 +28,20 @@
             <input th:field="*{email}" type="text" id="email" name="email" placeholder="Ingrese su Email" required>
         </div>
         <div class="input-group">
-            <label for="telefono">Telefono:</label>
-            <input th:field="*{telefono}" type="text" id="telefono" name="telefono" placeholder="Ingrese su Numero de Telefono" required>
+            <label for="telefono">Teléfono:</label>
+            <input th:field="*{telefono}" type="text" id="telefono" name="telefono" placeholder="Ingrese su Número de Teléfono" required>
         </div>
         <div class="input-group">
             <label for="edad">Edad:</label>
-            <input th:field="*{edad}" type="text" id="edad" name="edad" placeholder="Ingrese su edad" required>
+            <input th:field="*{edad}" type="text" id="edad" name="edad" placeholder="Ingrese su Edad" required>
         </div>
         <div class="input-group">
             <label for="contrasena">Contraseña:</label>
             <input th:field="*{contrasena}" type="password" id="contrasena" name="contrasena" placeholder="Cree su Contraseña" required>
+        </div>
+        <div class="input-group">
+            <label for="confirmContrasena">Confirmar Contraseña:</label>
+            <input type="password" id="confirmContrasena" name="confirmContrasena" placeholder="Repita su Contraseña" required>
         </div>
         <button type="submit" class="btn">Registrarse</button>
     </form>
