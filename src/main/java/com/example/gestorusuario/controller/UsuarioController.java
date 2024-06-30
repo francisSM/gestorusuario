@@ -30,7 +30,7 @@ public class UsuarioController {
         Usuario usuario = usuarioRepository.findByEmailAndContrasena(email, contrasena);
         if (usuario != null) {
             model.addAttribute("usuario", usuario);
-            return "redirect:/usuarios";
+            return "redirect:/menu";
         } else {
             model.addAttribute("error", "Credenciales incorrectas. Intente de nuevo.");
             return "index";
