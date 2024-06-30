@@ -74,6 +74,6 @@ public class UsuarioController {
         // Guardar el usuario si las validaciones pasan
         usuarioRepository.save(usuario);
         model.addAttribute("message", "Usuario Registrado");
-        return "registrarse";
+        return "registrado";
     }
 }
