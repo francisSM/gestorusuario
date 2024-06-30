@@ -59,6 +59,9 @@
         .btn:hover {
             background-color: #0077A8;
         }
+        .btn-separator {
+        margin-top: 10px;
+        }
         
         .message {
         background-color: #0077A8;
