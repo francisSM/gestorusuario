@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Registrarse</title>
+    <link rel="stylesheet" th:href="@{/static/css/styles.css}">
 </head>
 <body>
 
-<div th:replace="menu"></div>
 
 <div class="container">
     <h2>Registrarse</h2>
-    <link rel="stylesheet" th:href="@{/static/css/styles.css}">
 
     <div th:if="${message != null}" class="message">
         [[${message}]]
