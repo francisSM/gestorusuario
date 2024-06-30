@@ -1,55 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Registrarse</title>
 </head>
 <body>
 
+<div th:replace="menu"></div>
+
 <div class="container">
     <h2>Registrarse</h2>
-    <link rel="stylesheet" th:href="@{../static/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/static/css/styles.css}">
 
     <div th:if="${message != null}" class="message">
         [[${message}]]
     </div>
 
-    <form
-
-            th:action="@{/registrarse}"
-            method="post"
-            role="form"
-            th:object="${usuario}"
-    >
+    <form th:action="@{/registrarse}" method="post" role="form" th:object="${usuario}">
         <div class="input-group">
             <label for="nombre">Nombre:</label>
             <input th:field="*{nombre}" type="text" id="nombre" name="nombre" placeholder="Ingrese su Nombre" required>
         </div>
         <div class="input-group">
             <label for="apellido">Apellido:</label>
-            <input th:field="*{apellido}" type="text" id="apellido" name="apellido" placeholder="Ingrese su Apellido"  required>
+            <input th:field="*{apellido}" type="text" id="apellido" name="apellido" placeholder="Ingrese su Apellido" required>
         </div>
         <div class="input-group">
             <label for="email">Email:</label>
             <input th:field="*{email}" type="text" id="email" name="email" placeholder="Ingrese su Email" required>
         </div>
-
         <div class="input-group">
             <label for="telefono">Telefono:</label>
             <input th:field="*{telefono}" type="text" id="telefono" name="telefono" placeholder="Ingrese su Numero de Telefono" required>
         </div>
-
         <div class="input-group">
             <label for="edad">Edad:</label>
             <input th:field="*{edad}" type="text" id="edad" name="edad" placeholder="Ingrese su edad" required>
         </div>
-
         <div class="input-group">
             <label for="contrasena">Contraseña:</label>
-            <input th:field="*{contrasena}" type="text" id="contrasena" name="contrasena" placeholder="Cree su Contraseña" required>
+            <input th:field="*{contrasena}" type="password" id="contrasena" name="contrasena" placeholder="Cree su Contraseña" required>
         </div>
         <button type="submit" class="btn">Registrarse</button>
     </form>
 </div>
+
 </body>
 </html>

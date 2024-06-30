@@ -1,8 +1,6 @@
 package com.example.gestorusuario.model;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 @Entity
 public class Usuario {
     @Id
@@ -12,8 +10,10 @@ public class Usuario {
     private Long id;
     private String nombre;
     private String apellido;
+    @Column(name = "email")
     private String email;
     private String telefono;
+    @Column(name = "contrasena")
     private String contrasena;
     private int edad;
 
