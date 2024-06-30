@@ -4,12 +4,46 @@
     <meta charset="UTF-8">
     <title>Lista de Usuarios</title>
     <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .button-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: white;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .back-button {
+            background-color: #0077A8;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .table-container {
+            margin-top: 60px; /* Margin to avoid overlap with fixed button */
+            height: 500px; /* Fixed height for the table container */
+            overflow-y: auto; /* Enable vertical scrollbar */
+        }
+
         table {
             border: 1px solid black;
             border-collapse: collapse;
             width: 100%;
             font-size: 20px;
-            padding: 5px;
         }
 
         th, td {
@@ -29,21 +63,26 @@
     </style>
 </head>
 <body>
-<table>
-    <tr>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Email</th>
-        <th>Teléfono</th>
-        <th>Edad</th>
-    </tr>
-    <tr th:each="usuario : ${usuarios}">
-        <td th:text="${usuario.nombre}"></td>
-        <td th:text="${usuario.apellido}"></td>
-        <td th:text="${usuario.email}"></td>
-        <td th:text="${usuario.telefono}"></td>
-        <td th:text="${usuario.edad}"></td>
-    </tr>
-</table>
+<div class="button-container">
+    <button class="back-button" onclick="window.location.href='/menu'">Volver</button>
+</div>
+<div class="table-container">
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Edad</th>
+        </tr>
+        <tr th:each="usuario : ${usuarios}">
+            <td th:text="${usuario.nombre}"></td>
+            <td th:text="${usuario.apellido}"></td>
+            <td th:text="${usuario.email}"></td>
+            <td th:text="${usuario.telefono}"></td>
+            <td th:text="${usuario.edad}"></td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>
