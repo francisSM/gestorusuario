@@ -42,7 +42,6 @@
         <th>Email</th>
         <th>Telefono</th>
         <th>edad</th>
-        <th>Contraseña</th>
 
     </tr>
     <tr  th:each="usuarios : ${usuario}">
@@ -51,7 +50,6 @@
         <td  th:text="${usuarios.email}"></td>
         <td  th:text="${usuarios.telefono}"></td>
         <td  th:text="${usuarios.edad}"></td>
-        <td  th:text="${usuarios.contrasena}"></td>
     </tr>
 
 </table>
