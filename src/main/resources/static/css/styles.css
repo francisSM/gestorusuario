@@ -2,7 +2,7 @@
 
  body {
             font-family: Arial, sans-serif;
-            background-color: #00A5E3;
+            background-color: #1DB954;
             margin: 0;
             padding: 0;
             display: flex;
@@ -21,7 +21,7 @@
         }
 
         .container h2 {
-            color: #00A5E3;
+            color: #1DB954;
         }
 
         .input-group {
@@ -39,16 +39,16 @@
             padding: 5px;
             margin-top: 0px;
             margin-bottom: 0px;
-            border: 1px solid #00A5E3;
+            border: 1px solid #1DB954;
             border-radius: 5px;
         }
 
         .input-group input:focus {
-            outline-color: #00A5E3;
+            outline-color: #1DB954;
         }
 
         .btn {
-            background-color: #00A5E3;
+            background-color: #1DB954;
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -57,14 +57,14 @@
         }
 
         .btn:hover {
-            background-color: #0077A8;
+            background-color: #17A347;
         }
         .btn-separator {
         margin-top: 10px;
         }
         
         .message {
-        background-color: #0077A8;
+        background-color: #17A347;
         color: white;
         }
         .register-link {
