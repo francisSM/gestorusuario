@@ -3,73 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de Usuarios</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #148F3C; /* Fondo de la página */
-        }
-
-        .button-container {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: #148F3C;
-            padding: 10px 0;
-            text-align: center;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
-
-        .back-button {
-            background-color: #1DB954;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease; /* Transición suave */
-        }
-
-        .back-button:hover {
-            background-color: #17A347; /* Color más oscuro al pasar el mouse */
-        }
-
-        .table-container {
-            margin-top: 60px; /* Margen para evitar superposición con el botón fijo */
-            padding: 20px; /* Padding para evitar tocar los lados */
-            max-height: 500px; /* Altura fija para el contenedor de la tabla */
-            overflow-y: auto; /* Habilitar barra de desplazamiento vertical */
-            background-color: white; /* Fondo blanco para el contenedor de la tabla */
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 8px; /* Bordes redondeados */
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 18px;
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #1DB954;
-            color: white;
-            border-bottom: 2px solid #f4f4f4;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f4f4f4; /* Color de fondo para filas pares */
-        }
-    </style>
+    <link rel="stylesheet" th:href="@{/static/css/styles.css}">
 </head>
 <body>
 <div class="button-container">
