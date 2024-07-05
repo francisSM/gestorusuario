@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil</title>
+    <link rel="stylesheet" th:href="@{/static/css/styles.css}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Editar Perfil</h2>
+
+    <div th:if="${message != null}" class="message">
+        [[${message}]]
+    </div>
+
+    <form th:action="@{/editarPerfil}" method="post" role="form" th:object="${usuario}">
+        <input type="hidden" th:field="*{id}">
+
+        <div class="input-group">
+            <label for="nombre">Nombre:</label>
+            <input th:field="*{nombre}" type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="input-group">
+            <label for="apellido">Apellido:</label>
+            <input th:field="*{apellido}" type="text" id="apellido" name="apellido" required>
+        </div>
+        <div class="input-group">
+            <label for="email">Email:</label>
+            <input th:field="*{email}" type="text" id="email" name="email" required>
+        </div>
+        <div class="input-group">
+            <label for="telefono">Teléfono:</label>
+            <input th:field="*{telefono}" type="text" id="telefono" name="telefono" required>
+        </div>
+        <div class="input-group">
+            <label for="edad">Edad:</label>
+            <input th:field="*{edad}" type="text" id="edad" name="edad" required>
+        </div>
+
+        <button type="submit" class="btn">Guardar Cambios</button>
+    </form>
+    <button type="button" class="btn btn-separator" onclick="window.location.href='/menu'">Cancelar</button>
+
+    <button type="button" class="btn btn-danger" onclick="confirmDelete()">Eliminar Perfil</button>
+
+    <form id="deleteForm" th:action="@{/eliminarPerfil}" method="post" style="display: none;" th:object="${usuario}">
+        <input type="hidden" th:field="*{id}">
+    </form>
+</div>
+
+<script>
+    function confirmDelete() {
+        if (confirm("¿Estás seguro de que deseas eliminar tu perfil? Esta acción no se puede deshacer.")) {
+            if (confirm("Por favor, confirma de nuevo que deseas eliminar tu perfil.")) {
+                document.getElementById("deleteForm").submit();
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

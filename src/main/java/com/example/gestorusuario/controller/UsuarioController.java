@@ -79,6 +79,50 @@ public class UsuarioController {
         return "perfil";
     }
 
+    @PostMapping("/perfil")
+    public String editarPerfil(@ModelAttribute("usuario") Usuario usuario,
+                               Model model) {
+        // Guardar los cambios en el perfil del usuario
+        usuarioRepository.save(usuario);
+        model.addAttribute("message", "Perfil actualizado correctamente");
+        return "perfil";
+    }
+
+    @GetMapping("/editarPerfil")
+    public String editarPerfilForm(@ModelAttribute("usuario") Usuario usuario, Model model) {
+        // Cargar el usuario actual desde la base de datos usando su ID
+        Usuario currentUser = usuarioRepository.findById(usuario.getId()).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+        // Agregar el usuario al modelo para que los campos del formulario se llenen automáticamente
+        model.addAttribute("usuario", currentUser);
+
+        return "editarPerfil"; // Nombre del archivo HTML o plantilla Thymeleaf
+    }
+
+    @PostMapping("/editarPerfil")
+    public String actualizarPerfil(@ModelAttribute("usuario") Usuario usuario,
+                                   Model model) {
+        // Guardar los cambios en el perfil del usuario
+        usuarioRepository.save(usuario);
+        model.addAttribute("message", "Perfil actualizado correctamente");
+
+        return "perfil"; // Nombre del archivo HTML o plantilla Thymeleaf
+    }
+
+    @PostMapping("/eliminarPerfil")
+    public String eliminarPerfil(@ModelAttribute("usuario") Usuario usuario,
+                                 SessionStatus sessionStatus, Model model) {
+        // Eliminar el usuario de la base de datos
+        usuarioRepository.delete(usuario);
+
+        // Limpiar los atributos de sesión al cerrar sesión
+        sessionStatus.setComplete();
+
+        model.addAttribute("message", "Perfil eliminado correctamente");
+
+        return "redirect:/index";
+    }
+
     @ModelAttribute("usuario")
     public Usuario getDefaultUser() {
         return new Usuario(); // Retorna un usuario vacío como default
