@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+
+<div class="menu menu-left">
+    <div class="menu-header">Menú Principal</div>
+    <a href="menu">Inicio</a>
+    <a href="/perfil">Perfil</a>
+    <a href="">Editar Perfil</a>
+    <a href="">Eliminar Perfil</a>
+    <a href="/usuarios">Lista de Usuarios Registrados</a>
+    <a href="../">Cerrar Sesión</a>
+</div>
+
+<div class="content">
+    <h1>Mi Perfil</h1>
+
+    <div class="perfil-info">
+        <div><strong>Nombre:</strong> [[${usuario.nombre}]]</div>
+        <div><strong>Apellido:</strong> [[${usuario.apellido}]]</div>
+        <div><strong>Email:</strong> [[${usuario.email}]]</div>
+        <div><strong>Teléfono:</strong> [[${usuario.telefono}]]</div>
+        <div><strong>Edad:</strong> [[${usuario.edad}]] años</div>
+    </div>
+</div>
+
+<div class="menu menu-right">
+    <div class="menu-header">Opciones</div>
+    <a href="#contacto">Contacto</a>
+    <a href="#ayuda">Ayuda</a>
+    <a href="#documentos">Documentos</a>
+    <a href="#configuracion">Configuración</a>
+    <a href="#reportes">Reportar Error</a>
+</div>
+
+</body>
+</html>
