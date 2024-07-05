@@ -5,12 +5,11 @@ import com.example.gestorusuario.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 
 @Controller
+@SessionAttributes("usuario")
 public class UsuarioController {
 
     @Autowired
@@ -72,5 +71,23 @@ public class UsuarioController {
         usuarioRepository.save(usuario);
         model.addAttribute("message", "Usuario Registrado");
         return "registrado";
+    }
+
+    @GetMapping("/perfil")
+    public String getPerfilPage(@ModelAttribute("usuario") Usuario usuario, Model model) {
+        // La anotación @ModelAttribute asegura que el usuario esté disponible en el modelo
+        return "perfil";
+    }
+
+    @ModelAttribute("usuario")
+    public Usuario getDefaultUser() {
+        return new Usuario(); // Retorna un usuario vacío como default
+    }
+
+    @GetMapping("/logout")
+    public String logout(SessionStatus sessionStatus) {
+        // Limpiar los atributos de sesión al cerrar sesión
+        sessionStatus.setComplete();
+        return "redirect:/index";
     }
 }
