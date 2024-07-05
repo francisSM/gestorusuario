@@ -6,8 +6,14 @@
     <link rel="stylesheet" th:href="@{/static/css/styles.css}">
 </head>
 <body>
-<div class="button-container">
-    <button class="back-button" onclick="window.location.href='/menu'">Volver</button>
+<div class="menu menu-left">
+    <div class="menu-header">Menú Principal</div>
+    <a href="menu">Inicio</a>
+    <a href="perfil">Perfil</a>
+    <a href="">Editar Perfil</a>
+    <a href="">Eliminar Perfil</a>
+    <a href="/usuarios">Lista de Usuarios Registrados</a>
+    <a href="../">Cerrar Sesión</a>
 </div>
 <div class="table-container">
     <table>
@@ -26,6 +32,14 @@
             <td th:text="${usuario.edad}"></td>
         </tr>
     </table>
+</div>
+<div class="menu menu-right">
+    <div class="menu-header">Opciones</div>
+    <a href="#contacto">Contacto</a>
+    <a href="#ayuda">Ayuda</a>
+    <a href="#documentos">Documentos</a>
+    <a href="#configuracion">Configuración</a>
+    <a href="#reportes">Reportar Error</a>
 </div>
 </body>
 </html>
