@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
-
 @Controller
 public class UsuarioController {
 
@@ -39,8 +37,7 @@ public class UsuarioController {
 
     @GetMapping("/usuarios")
     public String getUsersPage(Model model) {
-        List<Usuario> listaUsuarios = usuarioRepository.findAll();
-        model.addAttribute("usuarios", listaUsuarios);
+        model.addAttribute("usuarios", usuarioRepository.findAll());
         return "usuarios";
     }
 
@@ -59,8 +56,8 @@ public class UsuarioController {
                            @RequestParam("confirmContrasena") String confirmContrasena,
                            Model model) {
         // Verificar si el correo ya está registrado
-        List<Usuario> existingUsers = usuarioRepository.findByEmail(usuario.getEmail());
-        if (!existingUsers.isEmpty()) {
+        Usuario existingUser = usuarioRepository.findByEmail(usuario.getEmail());
+        if (existingUser != null) {
             model.addAttribute("message", "El correo ya está registrado");
             return "registrarse";
         }
