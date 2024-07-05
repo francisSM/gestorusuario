@@ -169,7 +169,7 @@ body {
 
 
 body {
-    background-color: #148F3C;
+    background-color: #414141;
 }
 
 .button-container {
@@ -233,4 +233,10 @@ th {
 
 tr:nth-child(even) {
     background-color: #f4f4f4; /* Color de fondo para filas pares */
+}
+.perfil-info {
+    margin-top: 50px;
+}
+.perfil-info div {
+    margin-bottom: 15px;
 }
